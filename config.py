@@ -36,12 +36,9 @@ from modules import defaults
 from modules.screens import screens
 
 @hook.subscribe.startup_once
-def autostart():
-    subprocess.Popen([
-        "feh", "--randomize", "--bg-scale",
-        "/home/kaipha/Pictures/Wallpapers/*"
-    ])
-
+def autostart_once():
+    subprocess.Popen(['/home/kaipha/.config/qtile/scripts/autostart.fish'])
+    subprocess.Popen(['picom'])
 
 groups = [Group(i) for i in "123456789"]
 

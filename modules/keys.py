@@ -68,7 +68,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # Custom keys
-    Key([mod], "s", lazy.spawn("/home/Demosthenes/.config/qtile/scripts/lock.sh")),
+    Key([mod], "comma", lazy.spawn("/home/kaipha/.config/qtile/scripts/lock.fish")),
     Key(
         [mod],
         "r",
