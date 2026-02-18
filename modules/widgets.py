@@ -35,7 +35,7 @@ def parseWidgets(leftWidgets, middleWidgets, rightWidgets):
 
 
 # Decoration standard for widgets
-def decoration(color=defaults.colors["dark"], left=False, right=False):
+def decoration(color=defaults.colors["dark"], foreground=defaults.colors["light"], left=False, right=False):
     radius = 4
     if left:
         radius = [5, 0, 0, 5]
@@ -43,27 +43,29 @@ def decoration(color=defaults.colors["dark"], left=False, right=False):
         radius = [0, 5, 5, 0]
 
     return {
-        "decorations": [RectDecoration(colour=color, radius=radius, filled=True)],
+        "decorations": [RectDecoration(colour=color, foreground=foreground, radius=radius, filled=True)],
     }
 
 
 leftWidgets = [
     widget.Clock(
-        **decoration(defaults.colors["blue"]),
+        **decoration(defaults.colors["orange"]),
+        foreground=defaults.colors["light"],
         format="%d/%m-%Y ",
     ),
     widget.Clock(
-        **decoration(defaults.colors["blue"]),
+        **decoration(defaults.colors["yellow"]),
+        foreground=defaults.colors["light"],
         format="%H:%M ",
     ),
     widget.CheckUpdates(
-        **decoration(defaults.colors["blue"]),
+        **decoration(defaults.colors["aqua"]),
         update_interval=90,
         custom_command="(checkupdates ; paru -Qua) | cat",
         display_format="{updates} ",
         no_update_string="0 ",
-        colour_have_updates=defaults.colors["dark"],
-        colour_no_updates=defaults.colors["dark"],
+        colour_have_updates=defaults.colors["light"],
+        colour_no_updates=defaults.colors["light"],
         restart_indicator="ﰇ",
     ),
 ]
@@ -87,32 +89,36 @@ middleWidgets = [
 
 rightWidgets = [
     widget.DF(
-        **decoration(defaults.colors["blue"]),
+        **decoration(defaults.colors["purple"]),
         format=" {f}{m}B",
+        foreground=defaults.colors["light"],
         visible_on_warn=False,
     ),
     widget.Memory(
         **decoration(defaults.colors["blue"]),
         format=" {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm}",
+        foreground=defaults.colors["light"],
         measure_mem="G",
     ),
     widget.CPU(
-        **decoration(defaults.colors["blue"]),
+        **decoration(defaults.colors["aqua"]),
+        foreground=defaults.colors["light"],
         fomat=" {load_percent:0>2.0f}%",
     ),
     widget.ThermalSensor(
-        **decoration(defaults.colors["blue"]),
+        **decoration(defaults.colors["yellow"]),
         format=" {temp:.0f}°C",
-        foreground=defaults.colors["dark"],
-        foreground_alert=defaults.colors["dark"],
+        foreground=defaults.colors["light"],
+        foreground_alert=defaults.colors["light"],
         tag_sensor="Package id 0",
     ),
     widget.Battery(
-        **decoration(defaults.colors["blue"]),
+        **decoration(defaults.colors["orange"]),
+        foreground=defaults.colors["light"],
         this_screen_border=defaults.colors["blue"],
         this_current_screen_border=defaults.colors["blue"],
         format=" {percent:1.0%}",
-        full_char="",
+        full_char="",
     ),
 ]
 

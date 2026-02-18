@@ -24,14 +24,23 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, qtile, widget
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+
+import subprocess
 
 #import modules
 from modules.keys import keys, mod
 from modules import defaults
 from modules.screens import screens
+
+@hook.subscribe.startup_once
+def autostart():
+    subprocess.Popen([
+        "feh", "--randomize", "--bg-scale",
+        "/home/kaipha/Pictures/Wallpapers/*"
+    ])
 
 
 groups = [Group(i) for i in "123456789"]
