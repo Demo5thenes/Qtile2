@@ -69,6 +69,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # Custom keys
     Key([mod], "comma", lazy.spawn("/home/kaipha/.config/qtile/scripts/lock.fish")),
+    Key([mod], "period", lazy.spawn("/home/kaipha/.config/qtile/scripts/lock2.fish")),
     Key([mod], "space", lazy.spawn("/home/kaipha/.config/qtile/scripts/keyboard.fish")),
     Key(
         [mod],
