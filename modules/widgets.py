@@ -58,8 +58,14 @@ leftWidgets = [
         foreground=defaults.colors["light"],
         format="%H:%M ",
     ),
-    widget.CheckUpdates(
+    widget.KeyboardLayout(
         **decoration(defaults.colors["aqua"]),
+        foreground=defaults.colors["light"],
+        configured_keyboards=["us", "no"],
+        fmt="{}  ",
+    ),
+    widget.CheckUpdates(
+        **decoration(defaults.colors["blue"]),
         update_interval=90,
         custom_command="(checkupdates ; paru -Qua) | cat",
         display_format="{updates} ",
